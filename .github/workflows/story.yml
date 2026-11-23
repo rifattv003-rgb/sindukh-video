@@ -34,7 +34,7 @@ jobs:
         working-directory: ${{ steps.locate.outputs.proj_dir }}
         run: npm install
 
-      - name: Render video
+      - name: Render Story composition
         working-directory: ${{ steps.locate.outputs.proj_dir }}
         run: npx remotion render src/index.ts Story out/sindukh-video.mp4
 
@@ -42,4 +42,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sindukh-video-output
-          
+          path: ${{ steps.locate.outputs.proj_dir }}/out/sindukh-video.mp4
